@@ -7,11 +7,11 @@ def start_game(x):
     player_cards = random.sample(x, 7)
     computer_cards = random.sample(x, 7)
     starting_card = random.choice(x)
-    print('The cards have been dealt\n Directions: type the card you want to play (in lowercase) in the terminal. If you don\'t have a card to play input pick up.')
+    print('The cards have been dealt\n Directions: type the card you want to play (in lowercase) in the terminal. If you don\'t have a card to play input pick up. If you would like to quit the game enter quit. If starting card is wild card or draw 4 restart.')
     print('The starting card is {0}. Go player one!\n'.format(starting_card))
     card_down = starting_card
     card_down_check = starting_card.split(' ', 1)
-
+    quit = 0
     while True:
       if computer_cards == []:
         print('The Computer won!!')
@@ -24,6 +24,10 @@ def start_game(x):
           print('Player 1 has no cards\n')
           player_cards.append(random.choice(x))
           break
+
+        elif player_play == 'quit':
+          quit += 1
+          break 
     
         elif player_play == 'wild card':
           card_down = player_play
@@ -87,7 +91,10 @@ def start_game(x):
 
       if player_cards == []:
         print('Player 1 won!!')
-        break   
+        break
+      if quit != 0:
+        print('YOU LOSE!!')
+        break     
           #split between p and computer
       while True:
         card_match = 0
@@ -170,6 +177,7 @@ def start_game(x):
     print('The starting card is {0}. Go player one!\n'.format(starting_card))
     card_down = starting_card
     card_down_check = starting_card.split(' ', 1) 
+    quit = 0
     while True:
       if player2_cards == []:
         print('Player 2 won!!')
@@ -182,6 +190,9 @@ def start_game(x):
           print('Player 1 has no cards\n')
           player1_cards.append(random.choice(x))
           break
+        elif player1_play == 'quit':
+          quit += 1
+          break  
     
         elif player1_play == 'wild card':
           card_down = player1_play
@@ -239,7 +250,10 @@ def start_game(x):
 
       if player1_cards == []:
         print('Player 1 won!!')
-        break   
+        break
+      if quit != 0:
+        print('YOU LOSE!')
+        break     
           #split between p1 and 2
       while True:  
           player2_play= input('Player 2 you have {0} cards in your hand and {1} is the card down. which one will you play? \n'.format(player2_cards, card_down))
@@ -249,6 +263,9 @@ def start_game(x):
             print('Player 2 has no cards\n')
             player2_cards.append(random.choice(x))
             break
+          if player2_play == 'quit':
+            quit +=1
+            break  
 
           elif player2_play == 'wild card':
             card_down = player2_play
@@ -303,6 +320,9 @@ def start_game(x):
             card_down = player2_play
             card_down_check = player2_play_check
             break
+      if quit != 0:
+        print('YOU LOSE!')
+        break      
 
 uno_deck2 = ['wild card', 'wild card', 'wild card', 'wild card', 'draw 4', 'draw 4', 'draw 4', 'draw 4', 'red 0', 'red 1', 'red 1', 'red 2', 'red 2', 'red 3', 'red 3', 'red 4', 'red 4', 'red 5', 'red 5', 'red 6', 'red 6', 'red 7', 'red 7', 'red 8', 'red 8', 'red 9', 'red 9', 'red skip', 'red skip', 'red reverse', 'red reverse', 'red draw 2', 'red draw 2', 'green 0', 'green 1', 'green 1', 'green 2', 'green 2', 'green 3', 'green 3', 'green 4', 'green 4', 'green 5', 'green 5', 'green 6', 'green 6', 'green 7', 'green 7', 'green 8', 'green 8', 'green 9', 'green 9', 'green skip', 'green skip', 'green reverse', 'green reverse', 'green draw 2', 'green draw 2', 'blue 0', 'blue 1', 'blue 1', 'blue 2', 'blue 2', 'blue 3', 'blue 3', 'blue 4', 'blue 4', 'blue 5', 'blue 5', 'blue 6', 'blue 6', 'blue 7', 'blue 7', 'blue 8', 'blue 8', 'blue 9', 'blue 9', 'blue skip', 'blue skip', 'blue reverse', 'blue reverse', 'blue draw 2', 'blue draw 2', 'yellow 0', 'yellow 1', 'yellow 1', 'yellow 2', 'yellow 2', 'yellow 3', 'yellow 3', 'yellow 4', 'yellow 4', 'yellow 5', 'yellow 5', 'yellow 6', 'yellow 6', 'yellow 7', 'yellow 7', 'yellow 8', 'yellow 8', 'yellow 9', 'yellow 9', 'yellow skip', 'yellow skip', 'yellow reverse', 'yellow reverse', 'yellow draw 2', 'yellow draw 2']
 
